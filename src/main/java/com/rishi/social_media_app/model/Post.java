@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 @Document("post")
 public class Post {
+
     @Id
     private String id;
     private String title;
@@ -19,6 +20,8 @@ public class Post {
     private LocalDateTime createdAt;
     private int likes;
     private PostCreator creator;
+    private String mediaUrl;
+    private MediaType mediaType;
 
 }
 
