@@ -2,6 +2,7 @@ package com.rishi.social_media_app.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
@@ -21,6 +22,9 @@ public class Post {
     private int likes;
     private PostCreator creator;
     private String mediaUrl;
+
+    @Transient
+    private String presignedUrl;
     private MediaType mediaType;
 
 }

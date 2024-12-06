@@ -38,14 +38,22 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
-    public Post updatePost(@PathVariable String id, @RequestParam String title, @RequestParam String text, @RequestParam List<String> tags) {
-        return postService.updatePost(id, title, text, tags);
+    public Post updatePost(@PathVariable String id,
+                           @RequestParam String title,
+                           @RequestParam String text,
+                           @RequestParam List<String> tags,
+                           @RequestParam(value = "mediaFile", required = false) MultipartFile mediaFile) throws IOException {
+        return postService.updatePost(id, title, text, tags, mediaFile) ;
     }
 
-    @PostMapping("/{id}/delete")
+    @DeleteMapping("/{id}")
     public void deletePost(@PathVariable String id){
         postService.deletePost(id);
     }
 
+    @PostMapping("/{id}/like")
+    public void likePost(@PathVariable String id){
+        postService.likePost(id);
+    }
 
 }
